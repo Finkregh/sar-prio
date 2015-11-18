@@ -1,0 +1,113 @@
+
+% sysconfig und pakete
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}                   	%
+\usepackage{tikz}					        % tikz-grafiken
+\usetikzlibrary{shapes.multipart,trees,arrows,shapes,fit,backgrounds,topaths,positioning,fadings,decorations,automata}
+\usepackage{pgfbaselayers}                  % GFX-Layer
+\usepackage{eurosym}                    	% \euro Währungszeichen
+\usepackage{geometry}                   	% Einfache Definition der Zeilenabstände, Seitenränder etc.
+\usepackage{setspace}
+\usepackage{todonotes}                  	% \todo{} Anmerkungen
+\usepackage[binary]{SIunits}			% \mega\byte -- http://www.ctan.org/tex-archive/macros/latex/contrib/SIunits/
+\usepackage{varioref}			% automatische Seiten-referenz etc.
+\usepackage{url}
+\usepackage{appendix}
+\usepackage{paralist}           % Inline-Listen
+\usepackage{tabularx}           % variabel/feste Tabellen-Spalten
+\usepackage{booktabs}			% tabular-stuff
+
+%% header/footer
+\usepackage[nouppercase,                % nicht komplett in Großbuchstaben
+    automark,                           % Kapitelangaben in Kopfzeile automatisch erstellen
+    headsepline,                        % Trennlinie unter Kopfzeile
+    ilines                              % Trennlinie linksbündig ausrichten
+    ]{scrpage2}
+
+
+\usepackage[acronym,			% new glossary with acronyms
+    toc,				% add to TOC
+    numberline,         % add page-number in TOC
+    %style=listdotted,			% glossaries.pdf, page 55
+    style=list,			% glossaries.pdf, page 55
+    %header=plain,
+    %cols=3,
+    footnote,				% create footnote on new-acronym
+    %toctitle={},
+    numberedsection,
+    section=chapter
+]{glossaries}        % Glossar und Abkürzungen
+\usepackage{makeidx}                    % Index-Ausgabe mit \printindex
+
+% Symbolverzeichnis ------------------------------------------------------------
+%   Symbolverzeichnisse bequem erstellen. Beruht auf MakeIndex:
+%     makeindex.exe %Name%.nlo -s nomencl.ist -o %Name%.nls
+%   erzeugt dann das Verzeichnis. Dieser Befehl kann z.B. im TeXnicCenter
+%   als Postprozessor eingetragen werden, damit er nicht st�ndig manuell
+%   ausgef�hrt werden muss.
+%   Die Definitionen sind ausgegliedert in die Datei "Glossar.tex".
+% ------------------------------------------------------------------------------
+\usepackage[intoc]{nomencl}
+\let\abbrev\nomenclature
+\renewcommand{\nomname}{Abkürzungsverzeichnis}
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+
+% Zum Einbinden von Quellcode
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{hellgelb}{rgb}{1,1,0.9}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{%
+    float=hbp,%
+    basicstyle=\texttt\small, %
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys}, %
+    stringstyle=\color{colString}, %
+    commentstyle=\color{colComments}, %
+    columns=flexible, %
+    tabsize=2, %
+    frame=single, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    numbers=left, %
+    numberstyle=\tiny, %
+    breaklines=true, %
+    backgroundcolor=\color{hellgelb}, %
+    breakautoindent=true, %
+    escapeinside={(*@}{@*)}% use (*@\label{comment}@*)
+%    captionpos=b%
+}
+
+
+
+% Wichtig für korrekte Zitierweise, use bibtex-style dinat
+\usepackage{natbib}
+\usepackage[chapter,numbib,numindex,notlof]{tocbibind}
+% Quellenangaben in eckige Klammern fassen
+%\bibpunct{[}{]}{;}{a}{}{,~}
+
+
+\usepackage[colorlinks,			% Links farbig hervorheben
+%    breaklinks,					% Links umbrechen, passiert automatisch bei nutzung von pdftex
+    bookmarks,					%
+    hyperindex=false,
+    % uncomment the following line if you want to have black links (e.g., for printing)
+    urlcolor=black, linkcolor=black, citecolor=black, %pagecolor=Black,%
+    pdfauthor={Oluf Lorenzen},
+    pdftitle={Split-Access-Routing mit Priorisierung auf Linux-Basis},
+    pdfkeywords={Linux,Debian,routing}]{hyperref}
+                                        % PDF-Gefrickel
+                                        % Lange URLs umbrechen ...
+%\usepackage{breakurl}
+
+\usepackage{courier}
+
+% debugging etc.
+\usepackage[l2tabu, orthodox, abort]{nag}

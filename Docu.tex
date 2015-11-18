@@ -1,0 +1,125 @@
+\documentclass[a4paper,
+12pt,
+headings=small,
+bibliography=totoc,
+%toc=flat, % toc=graduated -> linksbündig
+%toc=listof,     % Abbildungs-, Tabellenverzeichnis
+toc=index,      % Stichwortverzeichnis
+ngerman,
+final           % Status final/draft
+]{scrreprt}
+
+%listof=totoc,
+%index=totoc,
+
+% bibliography=totoc, index=totoc, listof=totoc
+                % verzeichnisse ins TOC
+% toc=flat      % wenn zu /tiefe/ Punkte im TOC entstehen -> quasi-tabellarisches TOC
+% toc=listof    % Abb- und Tabellenverzeichnis stehen im TOC, nicht nummeriert
+% toc=idx       % Stichwortverzeichnis wird ins TOC aufgenommen, nicht nummeriert
+
+% einige Teile/Snippets von <http://blog.stefan-macke.com/2007/10/30/neue-version-meiner-latex-vorlage-fuer-die-diplomarbeit-an-der-fhwt/> übernommen
+
+\input{pakete}
+
+%%% Index-, Abkürzungsverzeichnis und Gloassar erstellen und einbinden
+\makeindex
+%\makenomenclature
+\makeglossary
+
+
+%%% Kopf- und Fußzeilen, Seitenränder etc.
+\input{seitenstil}
+
+\input{metadaten}
+
+\begin{document}
+\begin{titlepage}
+\titlehead{{\Large \auftraggeber\\}
+  Kniestraße 27\\
+  30167 Hannover}
+\subject{\untertitel}
+\date{Oktober 2009}
+\title{\titel}
+\author{\autor}
+\publishers{betreut durch Dipl.-Inform. Andreas Godzina\\\vspace{2cm}Ausbildungsberuf: Fachinformatiker Systemintegration\\Durchführungszeitraum: 12.10.2009 -- 20.10.2009}
+
+\maketitle
+
+\end{titlepage}
+
+\pagenumbering{Roman}
+\tableofcontents % Inhaltsverzeichnis
+
+
+% Abkürzungsverzeichnis
+\input{glossar}
+
+
+% arabische Seitenzahlen im Hauptteil
+\clearpage
+\pagenumbering{arabic}
+
+\input{Inhalt/einleitung}
+\input{Inhalt/planung}
+\input{Inhalt/durchfuerung}
+\input{Inhalt/resume}
+
+\appendix
+%\begin{appendices}
+%\chapter{Anhang}
+%\input{Inhalt/colophon}
+
+% für korrekte berschrift in der Kopfzeile
+%\clearpage\markboth{\nomname}{\nomname}
+%\printglossaries
+%\printnomenclature
+
+%\addcontentsline{toc}{chapter}{Glossarx}
+
+% standard bibtex-styles:
+% abbrv, acm, alpha, ieeetr, plain, siam, unsrt
+% extra bibtex-styles are available at
+%    http://www.ctan.org/tex-archive/biblio/bibtex/contrib/
+% dinat and elsevier are recomended. For dinat, the package 'natbib' is required.
+\bibliographystyle{dinat}
+\settocbibname{Quellen}
+\bibliography{Quellen}
+%\section{Quellen}
+%\renewcommand*{\refname}{}
+
+\printglossaries
+\listoffigures % Abbildungsverzeichnis
+
+
+%\listoftables % Tabellenverzeichnis
+\renewcommand{\lstlistlistingname}{Verzeichnis der Listings}
+%\addcontentsline{toc}{chapter}{Verzeichnis der Listings}
+\lstlistoflistings % Listings-Verzeichnis
+
+%%\addcontentsline{toc}{chapter}{Glossary}		% make gloassary apper in TOC
+\input{Inhalt/quelltexte}
+%\end{appendices}
+
+%\clearpage
+%\input{Inhalt/erklaerung}
+
+
+%\twocolumn
+%\input{Inhalt/demotext}
+%\onecolumn
+
+
+%\subsection{nicht-bla}
+%\input{Inhalt/demotext}
+
+%\input{Inhalt/quelltexte}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=21cm]{Inhalt/Grafiken/bestaetigung}
+  % null.png: 1030x633 pixel, 120dpi, 21.80x13.40 cm, bb=0 0 618 380[height=5.5cm]
+  \caption{Bestätigung über die durchgeführte Projektarbeit}
+  \label{fig:bestaetigung}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,47 @@
+# extra routes
+# Eintraege vor der FOXCONFIG Zeile sind
+# fuer die Oberflaeche unsichtbar
+
+# __split-access-routing__
+
+# get variables
+source /usr/local/etc/tc-routing.sh
+
+existing_routes_to_table()
+{
+    $IP route list table main | grep -vE "default|nexthop" | \
+        while read line; do
+            $IP r r $line table $2
+        done
+}
+
+default_rules_routes()
+{
+    $IP r r 127.0.0.0/8 dev lo table $2
+    $IP r r default dev $1 table $2
+    $IP r flush cache
+}
+
+table=$T1
+existing_routes_to_table $EDEV1 $table
+default_rules_routes $EDEV1 $table
+$IP rule list | grep -q "from $EDEV1_IP lookup $table" || $IP rule add from $EDEV1_IP table $table
+
+table=$T2
+existing_routes_to_table $EDEV2 $table
+default_rules_routes $EDEV2 $table
+$IP rule list | grep -q "from $EDEV2_IP lookup $table" || $IP rule add from $EDEV2_IP table $table
+
+# default route (set the actual split)
+$IP r r default scope global nexthop via $EDEV1_R dev $EDEV1 weight $EDEV1_WEIGHT nexthop via $EDEV2_R dev $EDEV2 weight $EDEV2_WEIGHT
+
+# set fixed routes for eth1
+while read line; do
+    $IP r r $line via $EDEV1_IP
+done < /usr/local/etc/fixed-routes-eth1
+
+# set fixed routes for eth2
+while read line; do
+    $IP r r $line via $EDEV2_IP
+done < /usr/local/etc/fixed-routes-eth2
+

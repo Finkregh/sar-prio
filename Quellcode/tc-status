@@ -1,0 +1,23 @@
+root@firewall:~$ tc -d class ls dev eth1
+class htb 2:1 root rate 200000bit ceil 200000bit burst 24999b/8 mpu 0b overhead 0b cburst 24999b/8 mpu 0b overhead 0b level 7
+class htb 2:2 parent 2:1 leaf 3: prio 0 quantum 1000 rate 50000bit ceil 100000bit burst 5Kb/8 mpu 0b overhead 0b cburst 12799b/8 mpu 0b overhead 0b level 0
+class htb 2:3 parent 2:1 leaf 4: prio 0 quantum 1000 rate 50000bit ceil 100000bit burst 6399b/8 mpu 0b overhead 0b cburst 12799b/8 mpu 0b overhead 0b level 0
+class htb 2:4 parent 2:1 leaf 5: prio 0 quantum 1250 rate 100000bit ceil 140000bit burst 12799b/8 mpu 0b overhead 0b cburst 17919b/8 mpu 0b overhead 0b level 0
+root@firewall:~$ tc -d qdisc ls dev eth1
+qdisc dsmark 1: root indices 0x0004 default_index 0x0000
+qdisc htb 2: parent 1: r2q 10 default 0 direct_packets_stat 0 ver 3.17
+qdisc sfq 3: parent 2:2 limit 127p quantum 1514b flows 127/1024
+qdisc sfq 4: parent 2:3 limit 127p quantum 1514b flows 127/1024
+qdisc sfq 5: parent 2:4 limit 127p quantum 1514b flows 127/1024
+root@firewall:~$ tc -d class ls dev eth2
+class htb 2:1 root rate 100000Kbit ceil 100000Kbit burst 12800Kb/8 mpu 0b overhead 0b cburst 12800Kb/8 mpu 0b overhead 0b level 7
+class htb 2:2 parent 2:1 leaf 3: prio 0 quantum 1600 rate 128000bit ceil 1000Kbit burst 16Kb/8 mpu 0b overhead 0b cburst 128Kb/8 mpu 0b overhead 0b level 0
+class htb 2:3 parent 2:1 leaf 4: prio 0 quantum 1600 rate 128000bit ceil 1000Kbit burst 15743b/8 mpu 0b overhead 0b cburst 128Kb/8 mpu 0b overhead 0b level 0
+class htb 2:4 parent 2:1 leaf 5: prio 0 quantum 12500 rate 1000Kbit ceil 99000Kbit burst 128Kb/8 mpu 0b overhead 0b cburst 12672Kb/8 mpu 0b overhead 0b level 0
+root@firewall:~$ tc -d qdisc ls dev eth2
+qdisc dsmark 1: root indices 0x0004 default_index 0x0000
+qdisc htb 2: parent 1: r2q 10 default 0 direct_packets_stat 0 ver 3.17
+qdisc sfq 3: parent 2:2 limit 127p quantum 1514b flows 127/1024
+qdisc sfq 4: parent 2:3 limit 127p quantum 1514b flows 127/1024
+qdisc sfq 5: parent 2:4 limit 127p quantum 1514b flows 127/1024
+

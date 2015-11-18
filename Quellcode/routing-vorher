@@ -1,0 +1,4 @@
+root@firewall:/# ip r
+82.100.226.144/28 dev eth0  proto kernel  scope link  src 82.100.226.145
+10.1.0.0/24 dev eth1  proto kernel  scope link  src 10.1.0.1
+default via 10.1.0.2  dev eth1
