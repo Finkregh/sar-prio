@@ -1,0 +1,54 @@
+\chapter{Fazit}
+Das Projekt konnte im vorgesehenen Zeitrahmen abgeschlossen werden (siehe Tabelle \vref{tab:zeit-benoetigt}) und verlief zu großen Teilen erfolgreich. Da die Vermutung, dass das \gls{sar} einen Ausfall einer Leitung von selbst bemerken würde, falsch war, konnte kein automatisiertes Umschalten auf eine andere Leitung implementiert werden. Dies hängt auch damit zusammen, dass viele Faktoren einen Ausfall verursachen können, welche auf unterscheidliche Weise geprüft werden müssen. Eine Ausarbeitung dessen hätte den Zeitrahmen gesprengt.
+
+\section{Kosten}
+\begin{table}[htb]
+\centering
+\begin{tabularx}{\textwidth}[t]{p{8.5cm}|X|X|X}
+\textbf{Beschreibung} & \textbf{Anzahl} & \textbf{Einzelpreis} & \textbf{Gesamtpreis}\\\toprule
+Auszubildender (Planung und Durchführung) & 35 Stunden & 38 {\euro} & 1330 {\euro}\\\hline
+Projektbetreuer (Gespräche und Abnahme) & 2 Stunden & 38 {\euro} & 76 {\euro}\\\bottomrule
+\multicolumn{3}{r|}{\textbf{Gesamt}} & 1406 {\euro}
+\end{tabularx}
+\caption{Projektkosten}
+\label{tab:kosten}
+\end{table}
+Der finanzielle Nutzen des Projekts liegt mehrfach über den Kosten, da
+\begin{inparaenum}[\itshape a\upshape)]
+      \item der Wegfall der Latenz bei der Support-Arbeit eine Erleicherung darstellt, welche die Arbeitsqualität erhöht;
+      \item dadurch die Support-Arbeit verkürzt wird, was die Kosten für Kunden herunter setzt, was wiederum auch die vom Kunden wahrgenommene Qualität erhöht;
+      \item das Feature der Priorisierung als Verkaufsargument bei neuen Maschinen eingesetzt werden kann;
+      \item die Priorisierung bei vorhandenen Installationen implementiert werden kann und die Kunden dadurch einen Mehrwert erhalten.
+\end{inparaenum}
+
+\section{Erweiterbarkeit}
+Die von der {\auftraggeber} angebotenen Maschinen sind auf einen Ausfallzeitraum von 3-5 Minuten ausgelegt. Das Web-GUI könnte um eine Funktion erweitert werden, die ermöglicht, das \gls{sar} zu aktivieren {\bzw}auf statisches Routing umzustellen. Eine andere Möglichkeit wäre die Erstellung eines Monitoring-Scripts, welches die physikalische Verbindung, die Funktionen der \gls{NIC} und des Routers davor überwacht und entsprechend das \gls{sar} aktiviert oder deaktiviert.
+
+Die Traffic-Priorisierung lässt sich durch eine Anpassung der \gls{tcng}-Scripte erweitern; mithilfe von weiteren Tests könnten neben \gls{HTB} auch andere Algrorithmen verwendet werden.
+Ein weiterer Punkt ist die Priorisierung von einzelnen \gls{HTB}-leaf-Klassen, um beispielsweise bei der Nutzung von \gls{VoIP} Bandbreite bereitzustellen (hohe Priorität), aber bei geringer Nutzung allen anderen Klassen (geringe Priorität) Bandbreite zu gewähren \citep[Kapitel 7.1.4]{TC}.
+
+\section{Alternativen}
+Eine Alternative wäre die Juniper SSG20 \citep{JUNIPER}, welche {\ca}850{\euro} (incl. MwSt.) kosten würde \citep{TLK}. Hier fehlen allerdings noch Folgekosten für
+\begin{inparaenum}[\itshape a\upshape)]
+  \item Schulungen, da die Software nicht bekannt ist, und für
+  \item Hardware-Garantie/Hardware-Austausch, da die Maschinen spezielle Hardware verwenden.
+\end{inparaenum}
+Außerdem wäre der Einsatz einer solchen Maschine ein Bruch der Windows-/Linux-Homogenität in vielen Kunden-Netzen. Die Linux-Administratoren der Kunden müssten bei Problemen mit der {\auftraggeber} erst die Syntax und Semantik der Juniper erlernen, anstatt auf einem bereits bekannten System zu arbeiten.
+
+\begin{table}[htb]
+\centering
+\begin{tabularx}{\textwidth}[t]{p{9cm}||X|X|X}
+Tätigkeit & geplante Dauer & benötigte Dauer & Unterschied\\\toprule
+Basiskonzept, Information, \etc & 3-4 & 10 & +6\\\hline
+Installation, Konfiguration, Einbinden in bestehende Scripte & 5 & 5 & 0\\\hline
+Anpassung von Parametern in Absprache mit Auftraggeber & 1 & 1 & 0\\\hline
+Test des Aufbaus, Zusammenspiel von vorhandenen Systemscripten mit neuer Konfiguration bei Reboot, Anpassung \etc & 4 & 6 & +2\\\hline
+Erstellung von Scripten, um Leitungs-Ausfall festzustellen & 3 & 0 & -3\\\hline
+Laufzeit-Tests (Last-Verteilung, Priorisierung), Simulation von versch. Ausfällen (Netzwerk-Interface, Next-Hop-Router, ...) & 7 & 3 & -4\\\hline
+Dokumentation & 8 & 10 & +2\\\hline
+variable Pufferzeit & 3 & 0 & -3\\\bottomrule
+\textbf{Ergebnis} & 35 & 35 & 0
+\end{tabularx}
+\caption{Gegenüberstellung der geplanten und benötigten Zeit in \std}
+\label{tab:zeit-benoetigt}
+\end{table}

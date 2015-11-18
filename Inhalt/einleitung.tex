@@ -1,0 +1,29 @@
+\chapter{Einleitung}
+\section{Umfeld der Installation und Ist-Zustand}
+Die {\auftraggeber} ist als Linux- und Netzwerkdienstleister 2004 in Hannover gegründet worden. Der Kerndienstleistungsbereich umfasst größtenteils \textit{second-} und \textit{third-Level}-Support an \gls{Debian}-Linux-Servern, Planung und Bereitstellung von Firewall- und Serversystemen sowie deren Wartung.
+Das Projekt "`\textit{\titel}"' ist ein In-House-Projekt, welches nach erfogreicher Implementierung im Produktivnetz unter anderem für Schulungszwecke und zum Sammeln von Erfahrung eingesetzt werden soll. Darüber hinaus wird nach einiger Zeit die Funktionalität auch in eigene Produkte übernommen.
+\subsection*{Beschreibung Ist-Zustand}
+Derzeit ist die {\auftraggeber} über einen einzelnen \gls{isp} mit 2000~{\kibi\bit\per\second} an das Internet angebunden (Siehe Abb. \vref{fig:netzplan}, "`alte Verbindung"').
+Diese Leitung wird firmenintern von drei bis vier Personen und innerhalb eines untervermieteten Büros von weiteren zwei bis drei Personen genutzt. Außerdem wird die Leitung zur Anbindung eines Mailservers und zum Download nächtlicher, inkrementeller Backups von Kundenservern genutzt. Für die tägliche Arbeit ist seitens der {\auftraggeber} der Zugriff via \gls{ssh} auf entfernte Maschinen, sowie die Nutzung der Protokolle \gls{HTTP} und \gls{SMTP} essentiell.
+
+Durch die Untervermietung hat sich die Auslastung der Internetleitung geändert. So war zuvor selten eine höhrere Latenz durch starke Auslastung festzustellen -- nun ist eine volle Auslastung häufig gegeben, was die Support-Arbeit via \gls{ssh} stark erschwert und verlangsamt.
+
+\section{Beschreibung Soll-Zustand}
+Um die Bandbreite zu priorisieren und die Last generell auf eine zweite Leitung aufzuteilen, wurde zunächst das Tool \gls{tc} und das LARTC-Howto \citep{LARTC} zur Problemlösung favorisiert. Diese Vorauswahl basiert auf einer generellen Präferenz der {\auftraggeber} für Lösungen, die sich mit \gls{Debian}-Bordmitteln und nach \gls{Debian}-Regeln erreichen lassen. Die Arbeit via SSH muss troz hoher Auslastung der Bandbreite latenzfrei möglich sein.
+\section{Zeitplanung}
+\begin{table}[htb]
+\centering
+\begin{tabular}{p{12cm}|l}
+geplante Tätigkeit & geplante Dauer\\\toprule
+Basiskonzept, Information, \etc & 3-4 \std\\\hline
+Installation, Konfiguration, Einbinden in bestehende Scripte & 5 \std\\\hline
+Anpassung von Parametern in Absprache mit Auftraggeber & 1 \std\\\hline
+Test des Aufbaus, Zusammenspiel von vorhandenen Systemscripten mit neuer Konfiguration bei Reboot, Anpassung \etc & 4 \std\\\hline
+Erstellung von Scripten um Leitungs-Ausfall festzustellen & 3 \std\\\hline
+Laufzeit-Tests (Last-Verteilung, Priorisierung), Simulation von versch. Ausfällen (Netzwerk-Interface, Next-Hop-Router, ...) & 7 \std\\\hline
+Dokumentation & 8 \std\\\hline
+variable Pufferzeit & 3 \std
+\end{tabular}
+\caption{Planung der benötigten Zeit innerhalb des vorgeschriebenen Zeitrahmens von 35 \std}
+\label{tab:zeit-geplant}
+\end{table}

@@ -1,0 +1,78 @@
+\usetikzlibrary{shapes.multipart,trees,arrows,shapes,fit,backgrounds,topaths,positioning,fadings,decorations,automata}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\begin{tikzpicture}[bend angle=45,auto,
+   %xscale                      = 1.0,
+   %yscale                      = 1.0,
+    %every node/.style          = MyNodeStyle,
+    grow                        = west,
+    %parent anchor              = west,
+    %child anchor               = east,
+    %sibling distance=3.5cm,level distance=3.5cm,
+    %edge from parent/.style        = {black, ->, draw},
+    punkt/.style={rectangle, rounded corners, shade, top color=white, bottom color=blue!50!black!20, draw=blue!40!black!60%, very thick
+    },
+    level 1/.style={sibling distance=1cm,level distance=3cm},
+    level 2/.style={sibling distance=4cm, level distance=4cm},
+    %level 3/.style={sibling distance=7cm,level distance=4.2cm},
+    %level 4/.style={sibling distance=2cm, level distance=2cm},
+    %level 5/.style={sibling distance=1cm, level distance=2cm},
+    descr/.style={rounded corners, shade, top color=white, bottom color=green!50!black!20, draw=green!40!black!60, thick },
+    %conn/.style={very thick,draw=blue!40!black!60,shorten >=10pt, shorten <=10pt, -> },
+    lan/.style={rectangle, rounded corners, shade, top color=white, bottom color=green!50!black!20, draw=green!40!black!60, thick},
+    wan/.style={rectangle, rounded corners, shade, top color=white, bottom color=red!50!black!20, draw=red!40!black!60, thick},
+    lanconn/.style={thick, draw=green!40!black!60, },
+    wanconn/.style={thick, draw=red!40!black!60, },
+    %pre/.style={thick, shorten >=10pt, shorten <=10pt, loosely dotted, <-},
+    %FIXME every second punkt node part/.style={red},
+    edge from parent/.style={thick, shorten >=10pt, shorten <=20pt},
+	every edge/.style={thick},
+	%lan edge from parent/.style={draw, <-}
+	%edge from parent/.style={draw=green!40!black!60,shorten >=10pt, shorten <=10pt, -> ,thick},
+    %},
+	%node/.style={}
+    font=\footnotesize,
+	every fit/.style={ellipse,inner sep=-7pt},
+    ]
+		
+\node[lan] [grow=left] (lan) {LAN} 
+	child {node [lan] {Client} edge from parent [lanconn]}
+	child {node [lan] {Client} edge from parent [lanconn]}
+	child {node [lan] {Client} edge from parent [lanconn]}
+	child {node [lan] {Client} edge from parent [lanconn]};
+
+\node[lan, node distance=3.5cm] (mail) [right of=lan] {mail.office.axxeo.de}
+	edge [lanconn,shorten >=10pt, shorten <=10pt] (lan);
+
+\node[wan,grow=right, node distance=5cm] (firewall) [right of=mail] {firewall.office.axxeo.de}
+	edge [wanconn,shorten >=10pt, shorten <=10pt] (mail)
+		child [grow=south west] {
+			node [wan] (client) {Client}
+				edge [wanconn, shorten >=10pt, shorten <=20pt] (firewall)}
+	    child [grow=north east] {
+	    	node[wan] (r1) {Router eins}
+				edge [wanconn,shorten >=10pt, shorten <=20pt] (firewall)
+			child [grow=east]{
+				node[wan,wanconn] (internet) {Internet}
+					edge [wanconn,shorten >=10pt, shorten <=30pt] (r1)
+			}
+		}
+		child [grow=south east] {
+			node[wan](r2) {Router zwei}
+				edge [wanconn,shorten >=10pt, shorten <=25pt] (internet)
+				edge [wanconn,shorten >=10pt, shorten <=20pt] (firewall)
+		};
+
+
+%
+%
+\begin{pgfonlayer}{background}
+  \node [fill=gray!20,fit=(firewall) (r1) (internet), inner sep=-1mm,label={above:alte Verbindung}] {};
+  \node [fill=gray!30,fit=(firewall) (r2), inner sep=-7mm,label={below:neue Verbindung},circle] {};
+  %\node [fill=blue!10,fit=(interactive-out) (interactive-in) (other),inner sep=5mm,label={left:HTB leaf classes}] {};
+  %\node [fill=blue!10,fit=(r1),inner sep=5mm] {extra Anbindung};
+\end{pgfonlayer}
+%
+\end{tikzpicture}

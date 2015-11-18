@@ -78,7 +78,7 @@ acs-*.bib
 
 # knitr
 *-concordance.tex
-*.tikz
+#*.tikz
 *-tikzDictionary
 
 # listings
@@ -124,3 +124,6 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+
+*~

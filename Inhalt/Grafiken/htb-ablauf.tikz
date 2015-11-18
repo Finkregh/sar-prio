@@ -1,0 +1,100 @@
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\begin{tikzpicture}[bend angle=45,auto,
+    xscale						= 0.8,
+	yscale						= 1.2,
+	%every node/.style			= MyNodeStyle,
+	grow						= south,
+	%parent anchor				= west,
+	%child anchor				= east,
+    %sibling distance=3.5cm,level distance=2cm,
+	%edge from parent/.style		= {black, ->, draw},
+    punkt/.style={rectangle, rounded corners, shade, top color=white, bottom color=blue!50!black!20, draw=blue!40!black!60},
+    %level 0/.style={level distance=2cm},
+    level 1/.style={level distance=2cm},
+    level 2/.style={sibling distance=10cm, level distance=5.5cm},
+    level 3/.style={sibling distance=7cm,level distance=4.2cm},
+    level 4/.style={sibling distance=2cm, level distance=2cm},
+    %level 5/.style={sibling distance=1cm, level distance=2cm},
+    descr/.style={rectangle split,rounded corners, shade, top color=white, bottom color=green!50!black!20, draw=green!40!black!60, very thick },
+    %conn/.style={very thick,draw=blue!40!black!60,shorten >=10pt, shorten <=10pt, -> },
+    pre/.style={thick, shorten >=10pt, shorten <=10pt, loosely dotted, <-},
+    %FIXMEevery second punkt node part/.style={red},
+    edge from parent/.style={draw=blue!40!black!60,shorten >=10pt, shorten <=10pt, -> ,thick},
+    font=\footnotesize
+    ]
+
+\usetikzlibrary{trees,arrows,shapes,fit,backgrounds,topaths,positioning,fadings,decorations,automata}
+
+\node[punkt] (root) {htb}
+	%
+    child {
+        node [descr] [rectangle split parts=2, text ragged]% [label={left:beschränkung der Bandbreite}]
+        (Interface)  (root-descr) {
+            rate = 200%~{\kilo\bit\per\second}
+            \nodepart{second} ceil = 200%~{\kilo\bit\per\second}
+        }
+        child [grow=south west] {
+            node[punkt, rectangle split, rectangle split parts=4, text ragged] (interactive-out) {
+                \textbf{\$interactive\_out}
+                \nodepart{second} SSH + short delay
+                \nodepart{third} short SSH
+                \nodepart{fourth} short HTTP
+            }
+            child [grow=south] {
+                node[descr, rectangle split, rectangle split parts=2, text ragged, level distance=6cm]% [label={left:beschränkung der Bandbreite}]
+                (sfq-int-out-descr){
+                rate = 50%~{\kilo\bit\per\second}
+                \nodepart{second} ceil = 50%~{\kilo\bit\per\second}
+                }
+                child {
+                    node[punkt]	(sfq-interactive-out) {sfq}
+                }
+            }
+        }
+        child [grow=south] {
+            node[punkt, rectangle split, rectangle split parts=3, text ragged] (interactive-in) {
+                \textbf{\$interactive\_in}
+                \nodepart{second} rate = 50%~{\kilo\bit\per\second}
+                \nodepart{third} ceil = 50%~{\kilo\bit\per\second}
+            }
+            child [grow=south] {
+                node[descr, rectangle split, rectangle split parts=2, text ragged] (sfq-int-out-descr){
+                rate = 50%~{\kilo\bit\per\second}
+                \nodepart{second} ceil = 50%~{\kilo\bit\per\second}
+                }
+                child {
+                    node[punkt] (sfq-interactive-in) {sfq}
+                }
+            }
+        }
+        child [grow=south east] {
+            node[punkt, rectangle split, rectangle split parts=3, text ragged] (other) {
+                \textbf{\$other}
+                \nodepart{second} rate = 100%~{\kilo\bit\per\second}
+                \nodepart{third} ceil = 140%~{\kilo\bit\per\second}
+            }
+            child [grow=south] {
+                node[descr, rectangle split, rectangle split parts=2, text ragged] (sfq-int-out-descr){
+                rate = 50%~{\kilo\bit\per\second}
+                \nodepart{second} ceil = 50%~{\kilo\bit\per\second}
+                }
+                child {
+                    node[punkt] (sfq-other) {sfq}
+                }
+            }
+        }
+    };
+%\node [below of=sfq-interactive-in, rounded corners, shade, top color=white, bottom color=red!50!black!20, draw=red!40!black!60, below=2cm] (hardware) {Network-Interface}%
+%                    edge [pre, bend left] (sfq-interactive-out)
+%                    edge [pre] (sfq-interactive-in)
+%                    edge [pre, bend right] (sfq-other);
+%
+\begin{pgfonlayer}{background}
+  \node [fill=blue!10,fit=(root), inner sep=5mm,label={left:HTB top level class}] {};
+  \node [fill=blue!10,fit=(interactive-out) (interactive-in) (other),inner sep=5mm,label={left:HTB leaf classes}] {};
+  %\node [fill=blue!10,fit=(hardware),inner sep=5mm] {};
+\end{pgfonlayer}
+
+\end{tikzpicture}

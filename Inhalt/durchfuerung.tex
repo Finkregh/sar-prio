@@ -1,0 +1,41 @@
+\chapter{Durchführung}
+%Aufgrund einer kurzfristigen personellen Veränderung ist eine Leitung nicht mehr zu nutzen gewesen und der Aufbau wurde innerhalb einer virtualisierten Umgebung nachgebildet.
+\section{Installation}
+\subsection*{Installation benötigter Software/Änderung vorhandener Dateien}
+\begin{labeling}[ -- ]{myheadings}
+\item[aptitude install tcng]
+  Installation von \gls{tcng}
+\item[echo -e {\tq}200 one{\bs}n 201 two{\tq} $>>$ /etc/iproute2/rt\_table]
+  Hinzufügen von zwei Routing-Tabellen
+\end{labeling}
+
+\subsection*{Einspielen angefertigter Dateien}
+\setkomafont{labelinglabel}{\ttfamily}
+\setkomafont{labelingseparator}{\normalfont}
+\begin{labeling}[ -- ]{myheadings}
+  \item[/opt/etc/extra-routes]
+    siehe \vref{lst:extra-routes},\\ bei Firewall-Start ausgeführtes Script
+    \begin{inparaenum}[\itshape a\upshape)]
+      \item zur Erstellung von Routing-Tabellen für beide Internet-Anbindungen;
+      \item zum Füllen dieser Tabellen;
+      \item zum Setzen von speziellen Routen.
+    \end{inparaenum}
+  \item[/etc/init.d/traffic-shaper] siehe \vref{lst:tc-routing},\\nach Firewall-Start Ausgeführtes Script zum Compilen von \vref{lst:eth1_tcc} und \ref{lst:eth2_tcc}, sowie Ausführen der ausgegebenen \gls{tc}-Befehle
+  \item[/usr/local/etc/tc-routing.sh] siehe \vref{lst:tc-routing-conf},\\Konfiguration für \texttt{/etc/init.d/traffic-shaper} und \texttt{/opt/etc/extra-\\routes}
+  \item[/usr/local/etc/tc/*.tcc] siehe \vref{lst:eth1_tcc} und \ref{lst:eth2_tcc},\\\gls{tcng}-Scripte welche in \texttt{/etc/init.d/traffic-shaper} genutzt werden
+\end{labeling}
+
+\section{Tests}
+Die Routing-Tabellen von \texttt{firewall.office.axxeo.de} wurden wie erwartet durch die Scripte von \vref{lst:routing-vorher} nach \ref{lst:routing-nacher} und die Konfiguration der Kernel-Traffic-Kontrolle (\ref{lst:tc-status}) erweitert.
+\begin{labeling}[ -- ]{myheadings}
+  \item[\gls{sar}]
+    Das \gls{sar} funktioniert wie erwartet. Es wurde ein Ping von \texttt{LAN} an diverse externe \gls{IP}-Adressen durchgeführt. Überprüft wurde die Verteilung mit dem Befehl \texttt{for i in 1 2;  do ip route show cache$|$grep -c{\tq}dev eth\$i{\tq} ; done}, welcher den Routing-\gls{Cache} ausliest und zählt, wieviele Routen für jedes Interface vorhanden sind.
+    Nach Trennen einer Verbindung zum Internet an \texttt{firewall.office.axxeo.de} wurden die Routen im Routing-Cache weiterhin nach Gewichtung (Zeile \vref{lst:tc-routing.sh.balancing}) verteilt. Die Verbindungen über das Interface ohne Verbindung konnten nicht aufgebaut werden.
+  \item[Priorisierung]
+    Zum Test der Priorisierung wurde die default-Route auf die schmalbandige Leitung umgestellt und mit \gls{hping} auf einem LAN-Client eine variierender Datenstrom zum Internet und umgekehrt erzeugt. Bei beiden Tests war die Arbeit mit SSH latenzfrei möglich.\\
+    Bei der Erzeugung eines weiteren Datenstroms von einem anderen Client im LAN wurde die Bandbreite gleichmäßig aufgeteilt.
+\end{labeling}
+Die Scripte zur Überprüfung des Leitungsausfalls wurden nicht erstellt, da es nicht zuverlässig möglich ist festzustellen, ob eine Leitung ausgefallen ist oder nicht. Hier wären auch sehr viele Parameter zu beachten: {\ua}das Netzwerk-Interface selber, das Netzwerkkabel, der nächste Router {\etc}
+Zu überprüfen wäre dann, ob die benötigte Funktion oder nur eine zur Überwachung genutzte Komponente des jeweiligen Teils eingeschränkt funktioniert. Ein Beispiel wären hier Core-Router in einem Rechenzentrum, welche oft aus Performance-Gründen Ping-Anfragen an sich selber verwerfen.
+
+Nach Rücksprache mit dem Auftraggeber wurde diese Funktionalität aus dem Projekt entfernt.

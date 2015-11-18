@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="bandbreite-nach-htb.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/ol/work-home/work/2009/schule/Abschlussdokumentation/Inhalt/Grafiken/bandbreite-nach-htb.png"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120">
+  <defs
+     id="defs4">
+    <pattern
+       inkscape:stockid="Checkerboard white"
+       id="Checkerboardwhite"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="2"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4170"
+         height="1"
+         width="1"
+         y="0"
+         x="0"
+         style="fill:white;stroke:none" />
+      <rect
+         id="rect4172"
+         height="1"
+         width="1"
+         y="1"
+         x="1"
+         style="fill:white;stroke:none" />
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1"
+       id="pattern4813"
+       patternTransform="matrix(9.770723,0,0,10.048353,-67.877618,-412.82745)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1"
+       id="Strips1_1"
+       patternTransform="matrix(9.770723,0,0,10.048353,5.0555272,-1.9935065)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4090"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:black;stroke:none" />
+    </pattern>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="147.8663"
+       height="182.42308"
+       patternTransform="translate(72.933145,410.83395)"
+       id="pattern4810">
+      <rect
+         y="0.49542829"
+         x="0.49542829"
+         height="181.43222"
+         width="146.87544"
+         id="rect2488"
+         style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:url(#pattern4813);stroke-width:0.99085659" />
+    </pattern>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.1575153"
+     inkscape:cx="217.76666"
+     inkscape:cy="683.65562"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:snap-global="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="959"
+     inkscape:window-x="0"
+     inkscape:window-y="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2387" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="bg"
+     style="opacity:1">
+    <rect
+       style="fill:#00ff00;opacity:0.48373984"
+       id="rect2486"
+       width="368.02969"
+       height="58.746548"
+       x="70.841393"
+       y="533.14661" />
+    <rect
+       style="stroke:none;fill:url(#Checkerboardwhite);fill-opacity:1;fill-rule:nonzero"
+       width="147.8663"
+       height="182.42308"
+       x="72.933145"
+       y="410.83395"
+       id="rect4815" />
+    <rect
+       style="opacity:0.43902438;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       width="148.73022"
+       height="121.0848"
+       x="72.069237"
+       y="472.17227"
+       id="rect4976" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="271.27069"
+       y="421.70099"
+       id="text2490"><tspan
+         sodipodi:role="line"
+         id="tspan2492"
+         x="271.27069"
+         y="421.70099">ceil</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="271.27072"
+       y="491.67847"
+       id="text2494"><tspan
+         sodipodi:role="line"
+         id="tspan2496"
+         x="271.27072"
+         y="491.67847">rate</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 267.81503,486.49495 L 234.12217,558.20026"
+       id="path4990" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.25067449px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 263.37009,419.23458 L 180.6845,495.87273"
+       id="path4994" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="12.001809"
+       y="542.15466"
+       id="text5036"><tspan
+         sodipodi:role="line"
+         id="tspan5038"
+         x="12.001809"
+         y="542.15466">100</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="12.865729"
+       y="482.54428"
+       id="text5040"><tspan
+         sodipodi:role="line"
+         id="tspan5042"
+         x="12.865729"
+         y="482.54428">200</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="12.865727"
+       y="421.20599"
+       id="text5044"><tspan
+         sodipodi:role="line"
+         id="tspan5046"
+         x="12.865727"
+         y="421.20599">300</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="-108.82909"
+       y="361.84909"
+       id="text5048"><tspan
+         sodipodi:role="line"
+         id="tspan5050"
+         x="-108.82909"
+         y="361.84909">Bandbreite in B/s</tspan></text>
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000"
+       id="rect2385"
+       width="488.81827"
+       height="2.4358487"
+       x="51.284172"
+       y="591.98676" />
+    <rect
+       style="fill:#000000"
+       id="rect2391"
+       width="2.4358487"
+       height="270.37921"
+       x="70.203766"
+       y="343.53021" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="593.52441"
+       y="631.0741"
+       id="text2393"><tspan
+         sodipodi:role="line"
+         id="tspan2395"
+         x="593.52441"
+         y="631.0741">Zeit in Sekunden</tspan></text>
+    <rect
+       style="fill:#000000"
+       id="rect2409"
+       width="1.7278389"
+       height="20.734066"
+       x="120.94872"
+       y="582.39001" />
+    <rect
+       style="fill:#000000"
+       id="rect2411"
+       width="1.7278389"
+       height="20.734066"
+       x="171.32822"
+       y="581.79828" />
+    <rect
+       style="fill:#000000"
+       id="rect2413"
+       width="1.7278389"
+       height="20.734066"
+       x="220.29945"
+       y="581.52606" />
+    <rect
+       style="fill:#000000"
+       id="rect2415"
+       width="1.7278389"
+       height="20.734066"
+       x="269.54288"
+       y="581.52606" />
+    <rect
+       style="fill:#000000"
+       id="rect2417"
+       width="1.7278389"
+       height="20.734066"
+       x="319.65018"
+       y="581.52606" />
+    <rect
+       style="fill:#000000"
+       id="rect2419"
+       width="1.7278389"
+       height="20.734066"
+       x="368.89359"
+       y="582.39001" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="114.73645"
+       y="632.49731"
+       id="text2437"><tspan
+         sodipodi:role="line"
+         id="tspan2439"
+         x="114.73645"
+         y="632.49731">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="164.84378"
+       y="632.49731"
+       id="text2441"><tspan
+         sodipodi:role="line"
+         id="tspan2443"
+         x="164.84378"
+         y="632.49731">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="214.08719"
+       y="632.49731"
+       id="text2445"><tspan
+         sodipodi:role="line"
+         id="tspan2447"
+         x="214.08719"
+         y="632.49731">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="264.19452"
+       y="633.36121"
+       id="text2449"><tspan
+         sodipodi:role="line"
+         id="tspan2451"
+         x="264.19452"
+         y="633.36121">4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="314.30185"
+       y="632.49731"
+       id="text2453"><tspan
+         sodipodi:role="line"
+         id="tspan2455"
+         x="314.30185"
+         y="632.49731">5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="363.45569"
+       y="632.36218"
+       id="text2457"><tspan
+         sodipodi:role="line"
+         id="tspan2459"
+         x="363.45569"
+         y="632.36218">6</tspan></text>
+    <rect
+       style="fill:#000000"
+       id="rect2461"
+       width="21.597986"
+       height="2.5917583"
+       x="59.610439"
+       y="530.55487" />
+    <rect
+       style="fill:#000000"
+       id="rect2463"
+       width="20.734066"
+       height="2.5917583"
+       x="60.474361"
+       y="470.9444" />
+    <rect
+       style="fill:#000000"
+       id="rect2465"
+       width="19.006227"
+       height="1.7278389"
+       x="61.33828"
+       y="410.47003" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 69.977475,471.80832 L 222.02729,471.80832"
+       id="path2477" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.94704264px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 221.1369,532.2562 L 442.35324,533.17308"
+       id="path2479" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.79187602px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 222.13136,471.70426 L 221.05932,532.38674"
+       id="path2481" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 71.705313,531.41876 L 221.16338,531.41876"
+       id="path2502" />
+  </g>
+</svg>
